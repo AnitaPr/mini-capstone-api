@@ -8,4 +8,9 @@ class ProductsController < ApplicationController
     product = Product.all
     render json: product.as_json
   end
+
+  def apple_method
+    product = Product.first
+    render json: product.as_json
+  end
 end
