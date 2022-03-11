@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   # get "/apple", controller: "products", action: "apple_method"
 
   get "all_products/:name" => "products#all_products_method"
+  get "/query_params" => "products#query_params" 
 end
