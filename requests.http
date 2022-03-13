@@ -1,0 +1,21 @@
+### Request create 
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "test name",
+  "price": "test price",
+  "image_url": "test image_url",
+  "description": "test description"
+  
+}
+
+### Request show
+
+GET http://localhost:3000/products
+
+
+### Request index
+
+GET http://localhost:3000/products

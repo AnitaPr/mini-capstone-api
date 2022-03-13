@@ -4,18 +4,31 @@ class ProductsController < ApplicationController
   #   render json: product.as_json
   # end
 
-  def all_products_method
-    watermelon = Product.find_by(name: "Watermelon")
-    render json: watermelon.as_json
+  def index 
+    products = Product.all
+    render json: products.as_json
   end
 
-  def query_params
-   input_name = params[:name]
-   render json: {message: "This product is #{input_name}"}
+  def show
+    products = Product.find_by(id: params["id"])
+    render json: products.as_json
   end
 
-  # def apple_method
-  #   product = Product.first
-  #   render json: product.as_json
+  def create
+    products = Product.new(
+      name: params["name"],
+      price: params["price"],
+      image_url: params["image_url"],
+      description: params["description"]
+    )
+    products.save
+    render json: products.as_json
+  end 
+
+  # def query_params
+  #  input_name = params[:name]
+  #  render json: {message: "This product is #{input_name}"}
   # end
+
+  
 end
