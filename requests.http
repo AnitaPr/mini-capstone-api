@@ -1,4 +1,4 @@
-### Request create 
+### Product create 
 
 POST http://localhost:3000/products
 Content-Type: application/json
@@ -11,11 +11,25 @@ Content-Type: application/json
   
 }
 
-### Request show
+### Product show
 
 GET http://localhost:3000/products
 
 
-### Request index
+### Product index
 
 GET http://localhost:3000/products
+
+
+### Product update 
+
+PATCH http://localhost:3000/products/6
+Content-Type: application/json
+
+{
+  "name": "Orange",
+  "price": "2",
+  "image_url": "test image_url",
+  "description": "test description"
+  
+}

@@ -25,6 +25,19 @@ class ProductsController < ApplicationController
     render json: products.as_json
   end 
 
+  def update
+    products_id = params["id"]
+    products = Product.find(products_id)
+
+    products.name = params["name"] || products.name
+    products.price = params["price"] || products.price
+    products.image_url = params["image_url"] || products.image_url
+    products.description = params["description"] || products.description
+
+    products.save
+    render json: products.as_json
+  end
+
   # def query_params
   #  input_name = params[:name]
   #  render json: {message: "This product is #{input_name}"}
