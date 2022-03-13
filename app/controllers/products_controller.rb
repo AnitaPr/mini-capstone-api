@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
   def update
     products_id = params["id"]
-    products = Product.find(products_id)
+    products = Product.find_by(id: products_id)
 
     products.name = params["name"] || products.name
     products.price = params["price"] || products.price
@@ -36,6 +36,13 @@ class ProductsController < ApplicationController
 
     products.save
     render json: products.as_json
+  end
+
+  def destroy
+    products_id = params["id"]
+    products = Product.find_by(id: products_id)
+    products.destroy
+    render json: {message: "Product deleted successfully"}
   end
 
   # def query_params

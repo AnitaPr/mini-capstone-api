@@ -33,3 +33,7 @@ Content-Type: application/json
   "description": "test description"
   
 }
+
+### Product destroy
+
+DELETE http://localhost:3000/products/5
