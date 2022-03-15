@@ -13,7 +13,7 @@ Content-Type: application/json
 
 ### Product show
 
-GET http://localhost:3000/products
+GET http://localhost:3000/products/3
 
 
 ### Product index

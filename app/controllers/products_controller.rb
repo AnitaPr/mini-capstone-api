@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
 
   def show
     products = Product.find_by(id: params["id"])
-    render json: products.as_json
+    render json: products.as_json(methods: [:is_discounted?,:tax, :total])
   end
 
   def create
@@ -49,6 +49,4 @@ class ProductsController < ApplicationController
   #  input_name = params[:name]
   #  render json: {message: "This product is #{input_name}"}
   # end
-
-  
 end
