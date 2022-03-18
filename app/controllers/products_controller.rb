@@ -21,8 +21,12 @@ class ProductsController < ApplicationController
       image_url: params["image_url"],
       description: params["description"]
     )
-    products.save
+    
+    if products.save
     render json: products
+    else 
+    render json: {error_messages: product.errors.full_messages}, status: 422
+    end
   end 
 
   def update

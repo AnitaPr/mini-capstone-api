@@ -4,10 +4,7 @@ POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "name": "test name",
-  "price": "test price",
-  "image_url": "test image_url",
-  "description": "test description"
+  "name": "Pineapple"
   
 }
 
@@ -20,6 +17,10 @@ GET http://localhost:3000/products/
 
 GET http://localhost:3000/products
 
+
+### Supplier index 
+
+GET http://localhost:3000/suppliers
 
 ### Product update 
 
