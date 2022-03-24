@@ -1,3 +1,29 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgwODIxNjd9.4qXcM9I_AWPoocSlwXWFg9VqbvoION8Ccf6VjgGy390
+
+
+### Orders Create
+POST http://localhost:3000/orders
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+ "product_id": "1",
+ "quantity": "2",
+
+}
+
+### Orders Show
+
+GET http://localhost:3000/orders/
+Authorization: Bearer {{jwt}}
+
+### Order Index
+
+GET http://localhost:3000/orders/1
+Authorization: Bearer {{jwt}}
+
+
+
 ### Product create 
 
 POST http://localhost:3000/products
@@ -16,11 +42,18 @@ GET http://localhost:3000/products/
 ### Product index
 
 GET http://localhost:3000/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgwODIxNjd9.4qXcM9I_AWPoocSlwXWFg9VqbvoION8Ccf6VjgGy390
 
 
 ### Supplier index 
 
 GET http://localhost:3000/suppliers
+
+
+### Images index
+
+GET http://localhost:3000/images
+
 
 ### Product update 
 
@@ -38,3 +71,26 @@ Content-Type: application/json
 ### Product destroy
 
 DELETE http://localhost:3000/products/5
+
+
+### Users create (signup)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Charlie Chaplin",
+  "email": "chaplin@test.com",
+  "password": "password1",
+  "password_confirmation": "password1"
+}
+
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "chaplin@test.com",
+  "password": "password1"
+}
+

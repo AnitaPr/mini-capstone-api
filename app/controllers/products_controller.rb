@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show] 
+  
   # def first_product_method
   #   product = Product.first
   #   render json: product.as_json
   # end
 
   def index 
+    pp current_user
     products = Product.all
     render json: products
   end
@@ -18,7 +21,6 @@ class ProductsController < ApplicationController
     products = Product.new(
       name: params["name"],
       price: params["price"],
-      image_url: params["image_url"],
       description: params["description"]
     )
     
@@ -35,7 +37,6 @@ class ProductsController < ApplicationController
 
     products.name = params["name"] || products.name
     products.price = params["price"] || products.price
-    products.image_url = params["image_url"] || products.image_url
     products.description = params["description"] || products.description
 
     products.save

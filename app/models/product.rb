@@ -5,17 +5,22 @@ class Product < ApplicationRecord
   validates :description, length: {in: 10..500}
   validates :description, presence: true 
 
+  belongs_to :supplier
+  has_many :images
+  has_many :orders
+  has_many :category_products
+  has_many :categories, through: :category_products
+
+
+  
+  
+
   def is_discounted?
-    if price < 10
-    return true
-    else  
-    return false 
-    end 
+    price <= 10
   end 
 
   def tax
-    tax = price.to_i * 0.09
-    return "Product tax is #{tax}"
+    price * 0.09
   end
 
   def total 
