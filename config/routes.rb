@@ -30,6 +30,14 @@ Rails.application.routes.draw do
   post "/orders" => "orders#create"
   get "/orders/:id" => "orders#show"
 
+  #carted_products
+  get "/carted_products" => "carted_products#index"
+  post "/carted_products" => "carted_products#create"
+  get "/carted_products/:id" => "carted_products#show"
+  delete "/carted_products/:id" => "carted_products#destroy"
+
+  
+
 
   # get "all_products/:name" => "products#all_products_method"
   # get "/query_params" => "products#query_params" 

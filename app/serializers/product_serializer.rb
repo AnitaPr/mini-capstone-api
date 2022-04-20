@@ -3,5 +3,6 @@ attributes :id, :name, :price, :description, :items, :is_discounted?, :tax, :tot
 
 belongs_to :supplier
 has_many :images
+has_many :categories
 
 end

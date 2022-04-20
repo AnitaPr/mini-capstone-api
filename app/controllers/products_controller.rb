@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
   # end
 
   def index 
-    pp current_user
     products = Product.all
     render json: products
   end
@@ -18,14 +17,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    products = Product.new(
+    product = Product.new(
       name: params["name"],
       price: params["price"],
-      description: params["description"]
+      description: params["description"],
+      supplier_id: params["supplier_id"]
     )
     
-    if products.save
-    render json: products
+    if product.save
+    render json: product
     else 
     render json: {error_messages: product.errors.full_messages}, status: 422
     end

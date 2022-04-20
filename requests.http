@@ -1,4 +1,34 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgwODIxNjd9.4qXcM9I_AWPoocSlwXWFg9VqbvoION8Ccf6VjgGy390
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTA1ODQzODJ9.fRZ95uQYycOjPieQ2KrPmiJI6w6IyKbSc5ziA2GfGZ8
+
+### Carted Product Delete
+
+DELETE http://localhost:3000/carted_products/1
+Authorization: Bearer {{jwt}}
+
+
+### Carted Products Show
+
+GET http://localhost:3000/carted_products/
+Authorization: Bearer {{jwt}} 
+
+### Carted Products Index
+
+GET http://localhost:3000/carted_products/
+Authorization: Bearer {{jwt}}
+
+### Carted Products Create
+
+POST http://localhost:3000/carted_products
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "user_id": "1",
+  "product_id": "3",
+  "quantity": "2",
+  "status": "carted",
+  "order_id": "1"
+}
 
 
 ### Orders Create
@@ -6,11 +36,6 @@ POST http://localhost:3000/orders
 Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
-{
- "product_id": "1",
- "quantity": "2",
-
-}
 
 ### Orders Show
 
@@ -27,22 +52,25 @@ Authorization: Bearer {{jwt}}
 ### Product create 
 
 POST http://localhost:3000/products
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "name": "Pineapple"
-  
+  "name": "Coconut",
+  "price": "4",
+  "description": "This is a fruit",
+  "supplier_id": "2"
 }
 
 ### Product show
 
-GET http://localhost:3000/products/
+GET http://localhost:3000/products/3
 
 
 ### Product index
 
 GET http://localhost:3000/products
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgwODIxNjd9.4qXcM9I_AWPoocSlwXWFg9VqbvoION8Ccf6VjgGy390
+Authorization: Bearer {{jwt}}
 
 
 ### Supplier index 
