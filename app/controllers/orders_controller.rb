@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
     # quantity: params["quantity"],
     subtotal: calculated_subtotal,
     tax: calculated_tax,
-    total: alculated_total
+    total: calculated_total
   )
   
    if order.save
